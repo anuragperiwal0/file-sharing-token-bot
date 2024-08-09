@@ -227,7 +227,7 @@ async def send_message_safe(client, chat_id, text):
         print(f"Cannot send message to {chat_id}: User has blocked the bot.")
 
 @Bot.on_message(filters.command('users') & filters.private & filters.user(ADMINS))
-async def get_users(client: Bot, msg):
+async def get_users(client: Bot, message):
     await send_message_safe(client, message.chat.id, WAIT_MSG)
     users = await full_userbase()
     await msg.edit(f"{len(users)} users are using this bot")
