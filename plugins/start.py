@@ -230,7 +230,7 @@ async def send_message_safe(client, chat_id, text):
 async def get_users(client: Bot, message):
     await send_message_safe(client, message.chat.id, WAIT_MSG)
     users = await full_userbase()
-    await msg.edit(f"{len(users)} users are using this bot")
+    await message.edit(f"{len(users)} users are using this bot")
 
 
 @Bot.on_message(filters.private & filters.command('broadcast') & filters.user(ADMINS))
